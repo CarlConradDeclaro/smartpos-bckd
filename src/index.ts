@@ -1,16 +1,16 @@
 import express from "express";
 import dotenv from "dotenv";
 import dbConnect from "./config/db";
-import poRouter from "./routes/purchase-order.route";
-
+import router from "./routes/purchase-order.route";
+import cors from "cors";
 dotenv.config();
 
 const PORT = process.env.PORT || 3000;
 
 const app = express();
-
+app.use(cors());
 app.use(express.json());
-app.use("/api/product-orders", poRouter);
+app.use("/api", router);
 
 app.get("/", (req, res) => {
   res.send("Hello World");
