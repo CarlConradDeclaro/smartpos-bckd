@@ -13,12 +13,12 @@ const productSchema = new mongoose.Schema(
       required: [true, "Product quantity is required."],
       min: [0, "Quantity cannot be less than 0."],
     },
-    unitPrice: {
-      type: mongoose.SchemaTypes.Decimal128,
-      required: [true, "Product price is required."],
-      min: [0, "Unit Price cannot be less than 0."],
-    },
-    amount: {
+    // unitPrice: {
+    //   type: mongoose.SchemaTypes.Decimal128,
+    //   required: [true, "Product price is required."],
+    //   min: [0, "Unit Price cannot be less than 0."],
+    // },
+    total: {
       type: mongoose.SchemaTypes.Decimal128,
       required: [true, "Product amount is required."],
       min: [0, "Amount cannot be less than 0."],
