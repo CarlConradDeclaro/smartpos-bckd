@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import { BSON } from "bson";
 // This schema is only for the products array of
 // Purchase Order Schema
 const productSchema = new mongoose.Schema(
@@ -24,7 +24,7 @@ const productSchema = new mongoose.Schema(
       min: [0, "Amount cannot be less than 0."],
     },
   },
-  { _id: false },
+  { _id: false }
 );
 
 // Values subject to change
@@ -45,11 +45,11 @@ const purchaseOrderSchema = new mongoose.Schema({
     type: [productSchema],
     required: [true, "Order Products is required."],
     validate: {
-      validator: function(value: typeof productSchema[]) {
+      validator: function (value: (typeof productSchema)[]) {
         return value.length > 0;
       },
-      message: "Order Products cannot be empty."
-    }
+      message: "Order Products cannot be empty.",
+    },
   },
   subtotal: {
     type: mongoose.SchemaTypes.Decimal128,
